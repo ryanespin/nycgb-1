@@ -18,18 +18,6 @@ const NotFoundPage: React.FC<PageProps> = () => {
       <Text mb={12}>
         Sorry 😔, we couldn’t find what you were looking for.
         <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in{" "}
-            <Code colorScheme="yellow" p={1} fontSize="lg" borderRadius="base">
-              src/pages/
-            </Code>
-            .
-            <br />
-          </>
-        ) : null}
-        <br />
         <Button>
           <ChakraLink as={Link} to="/">
             Go home
