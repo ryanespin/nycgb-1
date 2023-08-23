@@ -164,4 +164,18 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => (
+  <>
+    <title>New York City Ghostbusters, Inc. - Busting Ghosts for Charity at Conventions, Birthday Parties, Tours, and More</title>
+    <meta name="title" content="New York City Ghostbusters, Inc.: Bustin Ghosts for Charity Since 2012" />
+    <meta name="description" content="The NYC Ghostbusters are a local fan organized non-profit cosplay group who raise money for local charity at conventions, parties, tours, and more." />
+    <meta name="keywords" content="NYC Ghostbusters, Ghostbusters, New York City Ghostbusters, cosplay, charity, non-profit, conventions, NYCC, New York Comic Con, Birthday Parties, Parties, NJ, New Jersey, Tours, NYC Tours, Film Location Tours, Ghostbusters Tours" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </>
+)
