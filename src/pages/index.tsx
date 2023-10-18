@@ -138,7 +138,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <Button
               as="a"
               colorScheme="green"
-              href="mailto:info@ghostbusters.com?subject=[Volunteer Inquiry]!"
+              href="mailto:recruitment@nycghostbusters.com"
               size="lg"
             >
               We&apos;re Ready to Believe IN You
