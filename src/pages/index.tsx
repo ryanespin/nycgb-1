@@ -73,7 +73,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <Image boxSize={[60, 80]} src={'./images/nycgb-Logo.svg'} />
             <Box>
               <Heading as="h1" mb={8} size="2xl">
-                New York City&apos;s Fan Organized Ghostbusters Chartiy Group
+                New York City&apos;s Fan Organized Ghostbusters Charity Group
               </Heading>
               <Heading as="h2" letterSpacing={10} size="sm">
                 EST. 2012
