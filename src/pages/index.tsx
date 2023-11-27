@@ -5,30 +5,32 @@ import {
   Center,
   Container,
   Heading,
-  Highlight,
   Image,
-  List,
-  ListItem,
   Text,
   useColorMode,
-  Code,
   Button,
-  calc,
-  CodeProps,
   Link as ChakraLink,
-  Divider,
   Flex,
-  Spacer
+  Spacer,
+  Progress,
 } from "@chakra-ui/react";
+import '../styles/toy-drive.css';
 
-const $lineHeight = "1.4375rem";
-
-const PurpleCode = (props: CodeProps) => (
-  <Code colorScheme="purple" {...props} />
-);
-
-const IndexPage: React.FC<PageProps> = () => {
+const IndexPage: React.FC<PageProps> = ({ data }) => {
   const { toggleColorMode } = useColorMode();
+
+  // Create our number formatter.
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+
+  // These options are needed to round to whole numbers if that's what you want.
+  //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+  //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+});
+
+const currentAmountRaised = 25;
+
   return (
     <>
       <Box as="main">
@@ -66,8 +68,9 @@ const IndexPage: React.FC<PageProps> = () => {
               'column-reverse', null, 'row'
             ]}
             gap={4}
+            justifyContent="center"
             maxW="container.lg"
-            py={8}
+            pt={8}
           >
             <Box>
               <Image width={[60, 80]} src={'./images/ecto-holiday-image.png'} />
@@ -88,6 +91,31 @@ const IndexPage: React.FC<PageProps> = () => {
               <Image height={8} objectFit="contain" src="./images/toy-drive-2023/Wednesday-nov-29th---8PM-EST.png" />
             </Flex>
           </Container>
+          <Flex
+            alignItems="center"
+            flexDirection={['column', null, 'row']}
+            gap={4}
+            maxWidth="container.lg"
+            m="auto"
+            pb={8}
+            pt={2}
+            px={4}
+            width="100%"
+          >
+            <Progress
+              bg="orange.500"
+              colorScheme="yellow"
+              hasStripe
+              value={(currentAmountRaised/2023) * 100}
+              width="100%"
+              borderWidth={2}
+              borderColor="black"
+              borderRadius="md"
+            />
+            <Text color="black" fontSize="sm" fontWeight="bold" whiteSpace="nowrap">
+              Amount Raised: {formatter.format(currentAmountRaised)} / {formatter.format(2023)}
+            </Text>
+          </Flex>
         </Box>
         <Box
           bgBlendMode="color"

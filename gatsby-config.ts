@@ -13,7 +13,7 @@ const config: GatsbyConfig = {
       // https://chakra-ui.com/getting-started/gatsby-guide
       resolve: "@chakra-ui/gatsby-plugin",
       options: {},
-    },
+    }
   ],
 };
 
