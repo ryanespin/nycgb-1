@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import { type HeadFC, type PageProps } from "gatsby";
 import {
   Box,
   Center,
@@ -18,7 +18,7 @@ import {
   Link as ChakraLink,
   Divider,
   Flex,
-  Spacer,
+  Spacer
 } from "@chakra-ui/react";
 
 const $lineHeight = "1.4375rem";
@@ -51,6 +51,44 @@ const IndexPage: React.FC<PageProps> = () => {
             Who ya gonna email?
           </Button>
         </Container>
+        <Box
+          bgBlendMode="color"
+          bgGradient="linear(blue.600, blue.200 50%, pink.200, yellow.300, orange.300 95%, orange.900 99%)"
+          bgPosition="center"
+          bgSize="cover"
+          color="white"
+          textAlign="center"
+        >
+          <Container
+            alignItems="center"
+            display="flex"
+            flexDirection={[
+              'column-reverse', null, 'row'
+            ]}
+            gap={4}
+            maxW="container.lg"
+            py={8}
+          >
+            <Box>
+              <Image width={[60, 80]} src={'./images/ecto-holiday-image.png'} />
+              <Button
+                as={ChakraLink}
+                colorScheme="green"
+                href="http://ghostbusterstoydrive.com"
+                isExternal
+                size="lg"
+                width="100%"
+              >
+                Donate Here 🎁
+              </Button>
+            </Box>
+            <Flex flexDir="column" alignItems="center">
+              <Image height={16} objectFit="contain" src="./images/toy-drive-2023/3rd-Annual-Live.png" />
+              <Image height={24} objectFit="contain" src="./images/toy-drive-2023/Toy-Drive-Telethon.png" />
+              <Image height={8} objectFit="contain" src="./images/toy-drive-2023/Wednesday-nov-29th---8PM-EST.png" />
+            </Flex>
+          </Container>
+        </Box>
         <Box
           bgBlendMode="color"
           bgColor="blackAlpha.700"
