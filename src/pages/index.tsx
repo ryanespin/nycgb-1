@@ -13,6 +13,9 @@ import {
   Flex,
   Spacer,
   Progress,
+  ButtonGroup,
+  IconButton,
+  Tooltip,
 } from "@chakra-ui/react";
 import '../styles/toy-drive.css';
 
@@ -29,7 +32,7 @@ const formatter = new Intl.NumberFormat('en-US', {
   //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
 
-const currentAmountRaised = 25;
+const currentAmountRaised = 26;
 
   return (
     <>
@@ -45,13 +48,33 @@ const currentAmountRaised = 25;
           <Image src={'./images/nycgb-Logo.svg'} />
           <Image src={'./images/nycgb-full-text-black.svg'} />
           <Spacer />
-          <Button
-            as="a"
-            colorScheme="red"
-            href="mailto:info@nycghostbusters.com"
-          >
-            Who ya gonna email?
-          </Button>
+          <Tooltip fontStyle="italic" label="🎶 Ghostbusters! 🎶">
+            <Button
+              as="a"
+              colorScheme="red"
+              href="mailto:info@nycghostbusters.com"
+            >
+              Who ya gonna email?
+            </Button>
+          </Tooltip>
+          <ButtonGroup spacing={0} variant="ghost">
+            <IconButton
+              aria-label="NYC Ghostbusters on Facebook"
+              as="a"
+              href="https://facebook.com/nycghostbusters"
+              icon={<Image src="./images/facebook-icon.png" />}
+              isRound
+              target="_blank"
+            />
+            <IconButton
+              aria-label="NYC Ghostbusters on Instagram"
+              as="a"
+              href="https://instagram.com/nycghostbusters"
+              icon={<Image src="./images/instagram-icon.png" />}
+              isRound
+              target="_blank"
+            />
+          </ButtonGroup>
         </Container>
         <Box
           bgBlendMode="color"
@@ -72,19 +95,29 @@ const currentAmountRaised = 25;
             maxW="container.lg"
             pt={8}
           >
-            <Box>
+            <Flex flexDirection="column" alignItems="center">
               <Image width={[60, 80]} src={'./images/ecto-holiday-image.png'} />
-              <Button
-                as={ChakraLink}
-                colorScheme="green"
-                href="http://ghostbusterstoydrive.com"
-                isExternal
-                size="lg"
-                width="100%"
-              >
-                Donate Here 🎁
-              </Button>
-            </Box>
+              <Flex alignItems="center" flexWrap="wrap" gap={2} justifyContent="center">
+                <Button
+                  as={ChakraLink}
+                  colorScheme="green"
+                  href="https://www.zeffy.com/en-US/donation-form/e7024fcf-6d22-4f9f-97d5-19741f9311e5"
+                  isExternal
+                  size="lg"
+                >
+                  Donate Here 🎁
+                </Button>
+                <Button
+                  as={ChakraLink}
+                  colorScheme="red"
+                  href="https://www.youtube.com/live/yEaG9CHP0tM?si=dH-GhNUPNLKWGs49"
+                  isExternal
+                  size="lg"
+                >
+                  Watch our Telethon
+                </Button>
+              </Flex>
+            </Flex>
             <Flex flexDir="column" alignItems="center">
               <Image height={16} objectFit="contain" src="./images/toy-drive-2023/3rd-Annual-Live.png" />
               <Image height={24} objectFit="contain" src="./images/toy-drive-2023/Toy-Drive-Telethon.png" />
@@ -97,8 +130,7 @@ const currentAmountRaised = 25;
             gap={4}
             maxWidth="container.lg"
             m="auto"
-            pb={8}
-            pt={2}
+            py={2}
             px={4}
             width="100%"
           >
@@ -116,6 +148,11 @@ const currentAmountRaised = 25;
               Amount Raised: {formatter.format(currentAmountRaised)} / {formatter.format(2023)}
             </Text>
           </Flex>
+          <Box pb={8}>
+            <ChakraLink color="gray.700" fontWeight="bold" href="http://ghostbusterstoydrive.com" isExternal>
+              ghostbusterstoydrive.com
+            </ChakraLink>
+          </Box>
         </Box>
         <Box
           bgBlendMode="color"
