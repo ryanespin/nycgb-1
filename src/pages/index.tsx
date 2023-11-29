@@ -32,7 +32,7 @@ const formatter = new Intl.NumberFormat('en-US', {
   //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
 
-const currentAmountRaised = 126;
+const currentAmountRaised = 226;
 
   return (
     <>
