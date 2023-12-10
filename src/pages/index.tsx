@@ -32,7 +32,7 @@ const formatter = new Intl.NumberFormat('en-US', {
   //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
 
-const currentAmountRaised = 1800;
+const currentAmountRaised = 2788;
 
   return (
     <>
@@ -145,7 +145,7 @@ const currentAmountRaised = 1800;
               borderRadius="md"
             />
             <Text color="black" fontSize="sm" fontWeight="bold" whiteSpace="nowrap">
-              Amount Raised: {formatter.format(currentAmountRaised)} / {formatter.format(2023)}
+              Amount Raised: <Text as="span" color="green.500">{formatter.format(currentAmountRaised)}</Text> / {formatter.format(2023)}
             </Text>
           </Flex>
           <Box pb={8}>
