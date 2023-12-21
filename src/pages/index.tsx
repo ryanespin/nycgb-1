@@ -16,24 +16,11 @@ import {
   ButtonGroup,
   IconButton,
   Tooltip,
+  HStack,
 } from "@chakra-ui/react";
 import '../styles/toy-drive.css';
 
-const IndexPage: React.FC<PageProps> = ({ data }) => {
-  const { toggleColorMode } = useColorMode();
-
-  // Create our number formatter.
-const formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-
-  // These options are needed to round to whole numbers if that's what you want.
-  //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
-  //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
-});
-
-const currentAmountRaised = 3468;
-
+const IndexPage: React.FC<PageProps> = () => {
   return (
     <>
       <Box as="main">
@@ -88,71 +75,36 @@ const currentAmountRaised = 3468;
             alignItems="center"
             display="flex"
             flexDirection={[
-              'column-reverse', null, 'row'
+              'column-reverse', null, 'row-reverse'
             ]}
-            gap={4}
             justifyContent="center"
             maxW="container.lg"
             pt={8}
           >
-            <Flex flexDirection="column" alignItems="center">
-              <Image width={[60, 80]} src={'./images/ecto-holiday-image.png'} />
-              <Flex alignItems="center" flexWrap="wrap" gap={2} justifyContent="center">
-                <Button
-                  as={ChakraLink}
-                  colorScheme="green"
-                  href="https://www.zeffy.com/en-US/donation-form/e7024fcf-6d22-4f9f-97d5-19741f9311e5"
-                  isExternal
-                  size="lg"
-                >
-                  Donate Here 🎁
-                </Button>
-                <Button
-                  as={ChakraLink}
-                  colorScheme="red"
-                  href="https://www.youtube.com/live/yEaG9CHP0tM?si=dH-GhNUPNLKWGs49"
-                  isExternal
-                  size="lg"
-                >
-                  Watch our Telethon
-                </Button>
+            <Image width={[60, 80]} src={'./images/ecto-holiday-image.png'} />
+            <Flex flexDir="column" alignItems="center" gap={4}>
+              <Image width={[60, 80]} objectFit="contain" src="./images/toy-drive-2023/NYCGB_ToyDrive_2023_Total_0001_we-ended-up-purchasing-a-total-of.png" />
+              <Flex alignItems="flex-start" flexDirection={['row', null, 'row']} gap={2} justifyContent="center">
+                <Image width={[24, 28]} objectFit="contain" src="./images/toy-drive-2023/NYCGB_ToyDrive_2023_Total_0007_307.png" />
+                <Image width={[24, 28]} objectFit="contain" src="./images/toy-drive-2023/NYCGB_ToyDrive_2023_Total_0006_toys.png" />
+                <Image width={[20, 24]} objectFit="contain" src="./images/toy-drive-2023/NYCGB_ToyDrive_2023_Total_0003_Over--$2,800!.png" />
               </Flex>
             </Flex>
-            <Flex flexDir="column" alignItems="center">
-              <Image height={16} objectFit="contain" src="./images/toy-drive-2023/3rd-Annual-Live.png" />
-              <Image height={24} objectFit="contain" src="./images/toy-drive-2023/Toy-Drive-Telethon.png" />
-              <Image height={8} objectFit="contain" src="./images/toy-drive-2023/Wednesday-nov-29th---8PM-EST.png" />
-            </Flex>
           </Container>
-          <Flex
-            alignItems="center"
-            flexDirection={['column', null, 'row']}
-            gap={4}
-            maxWidth="container.lg"
-            m="auto"
-            py={2}
-            px={4}
-            width="100%"
-          >
-            <Progress
-              bg="orange.500"
-              colorScheme="yellow"
-              hasStripe
-              value={(currentAmountRaised/2023) * 100}
-              width="100%"
-              borderWidth={2}
-              borderColor="black"
-              borderRadius="md"
-            />
-            <Text color="black" fontSize="sm" fontWeight="bold" whiteSpace="nowrap">
-              Amount Raised: <Text as="span" color="green.500">{formatter.format(currentAmountRaised)}</Text> / {formatter.format(2023)}
-            </Text>
-          </Flex>
-          <Box pb={8}>
+          <Flex alignItems="center" flexDirection={['column', null, 'row']} justifyContent="center" gap={[2, 4, 8]} pb={8}>
+            <Button
+              as={ChakraLink}
+              colorScheme="red"
+              href="https://www.youtube.com/live/yEaG9CHP0tM?si=dH-GhNUPNLKWGs49"
+              isExternal
+              size="lg"
+            >
+              Watch our Telethon
+            </Button>
             <ChakraLink color="gray.700" fontWeight="bold" href="http://ghostbusterstoydrive.com" isExternal>
               ghostbusterstoydrive.com
             </ChakraLink>
-          </Box>
+          </Flex>
         </Box>
         <Box
           bgBlendMode="color"
@@ -217,7 +169,7 @@ const currentAmountRaised = 3468;
           />
         </Container>
         <Box
-          bgAttachment="fixed"
+          bgAttachment={[null, null, null, 'fixed']}
           bgImage={'url(./images/ecto-nyc-main.jpg)'}
           bgPosition="center"
           bgSize="cover"
